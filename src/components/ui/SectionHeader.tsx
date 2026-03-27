@@ -5,20 +5,14 @@ interface SectionHeaderProps {
   centered?: boolean;
 }
 
-export function SectionHeader({ tag, heading, sub, centered }: SectionHeaderProps) {
+export function SectionHeader({
+  tag,
+  heading,
+  sub,
+  centered,
+}: SectionHeaderProps) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: centered ? "center" : "space-between",
-        flexDirection: centered ? "column" : "row",
-        marginBottom: "3rem",
-        gap: "2rem",
-        flexWrap: "wrap",
-        textAlign: centered ? "center" : "left",
-      }}
-    >
+    <div className={centered ? "section-header--centered" : "section-header"}>
       <div>
         <div
           style={{
@@ -46,19 +40,7 @@ export function SectionHeader({ tag, heading, sub, centered }: SectionHeaderProp
           {heading}
         </h2>
       </div>
-      {sub && (
-        <p
-          style={{
-            color: "var(--text2)",
-            maxWidth: "460px",
-            fontSize: "0.95rem",
-            fontWeight: 300,
-            lineHeight: 1.75,
-          }}
-        >
-          {sub}
-        </p>
-      )}
+      {sub && <p className="section-header-sub">{sub}</p>}
     </div>
   );
 }

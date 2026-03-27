@@ -7,9 +7,10 @@ export function Services() {
   return (
     <section
       id="services"
-      style={{ background: "var(--bg2)", padding: "6rem 2.5rem" }}
+      className="section"
+      style={{ background: "var(--bg2)" }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div className="container">
         <SectionHeader
           tag="What we do"
           heading={
@@ -24,23 +25,13 @@ export function Services() {
           sub="We don't just ship features — we architect systems that grow with you. Every product leaves our hands production-ready."
         />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))",
-            gap: "1px",
-            background: "var(--border)",
-            border: "1px solid var(--border)",
-            borderRadius: "12px",
-            overflow: "hidden",
-          }}
-        >
+        <div className="services-grid">
           {services.map((service) => (
             <div
               key={service.num}
               style={{
                 background: "var(--card)",
-                padding: "2.2rem",
+                padding: "2rem",
                 transition: "background 0.2s",
               }}
               onMouseEnter={(e) =>

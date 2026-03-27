@@ -1,17 +1,7 @@
 export function Hero() {
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 2.5rem" }}>
-      <section
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          padding: "8rem 0 4rem",
-          position: "relative",
-        }}
-      >
+    <div className="hero-wrapper">
+      <section className="hero-section">
         {/* Eyebrow */}
         <div
           style={{
@@ -24,7 +14,7 @@ export function Hero() {
             padding: "0.3rem 1rem",
             fontSize: "0.75rem",
             color: "var(--highlight)",
-            marginBottom: "2.5rem",
+            marginBottom: "2rem",
             fontWeight: 600,
             letterSpacing: "0.04em",
             textTransform: "uppercase",
@@ -37,6 +27,7 @@ export function Hero() {
               borderRadius: "50%",
               background: "var(--highlight)",
               display: "inline-block",
+              flexShrink: 0,
             }}
           />
           CAC Registered · Lagos, Nigeria
@@ -46,12 +37,12 @@ export function Hero() {
         <h1
           style={{
             fontFamily: "var(--font-serif)",
-            fontSize: "clamp(3rem, 7vw, 6rem)",
+            fontSize: "clamp(2.6rem, 7vw, 6rem)",
             fontWeight: 400,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             maxWidth: "800px",
-            marginBottom: "1.8rem",
+            marginBottom: "1.5rem",
             color: "var(--text)",
           }}
         >
@@ -81,61 +72,25 @@ export function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
           <a href="#contact">
-            <button
-              style={{
-                background: "var(--accent)",
-                color: "#fff",
-                border: "none",
-                padding: "0.85rem 2rem",
-                borderRadius: "8px",
-                fontFamily: "var(--font-sans)",
-                fontSize: "0.95rem",
-                fontWeight: 600,
-                cursor: "pointer",
-                letterSpacing: "0.01em",
-              }}
-            >
-              Start a project →
-            </button>
+            <button className="btn btn-accent">Start a project →</button>
           </a>
           <a href="#services">
-            <button
-              style={{
-                background: "transparent",
-                color: "var(--text)",
-                border: "1.5px solid var(--border2)",
-                padding: "0.85rem 2rem",
-                borderRadius: "8px",
-                fontFamily: "var(--font-sans)",
-                fontSize: "0.95rem",
-                fontWeight: 500,
-                cursor: "pointer",
-              }}
-            >
-              View our work
-            </button>
+            <button className="btn btn-outline">View our work</button>
           </a>
         </div>
 
-        {/* Decorative circles */}
+        {/* Decorative circles — desktop only */}
         <div
+          className="hero-circles"
           aria-hidden="true"
           style={{
-            position: "absolute",
-            right: "2.5rem",
-            top: "50%",
-            transform: "translateY(-50%)",
             width: "380px",
             height: "380px",
             borderRadius: "50%",
             border: "1px solid var(--border)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             opacity: 0.5,
-            pointerEvents: "none",
           }}
         >
           <div

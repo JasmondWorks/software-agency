@@ -17,9 +17,10 @@ export function Team() {
   return (
     <section
       id="team"
-      style={{ background: "var(--bg2)", padding: "6rem 2.5rem" }}
+      className="section"
+      style={{ background: "var(--bg2)" }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div className="container">
         <SectionHeader
           tag="The team"
           heading={
@@ -34,13 +35,7 @@ export function Team() {
           sub="A bench of senior practitioners across every discipline — each a specialist, working together as one team."
         />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="grid-team">
           {team.map((member) => {
             const av = avatarColors[member.color];
             return (
@@ -50,7 +45,7 @@ export function Team() {
                   background: "var(--card)",
                   border: "1px solid var(--border)",
                   borderRadius: "12px",
-                  padding: "1.8rem",
+                  padding: "1.5rem 1.25rem",
                   textAlign: "center",
                   boxShadow: "var(--shadow)",
                   transition: "box-shadow 0.2s, transform 0.2s",
@@ -67,15 +62,15 @@ export function Team() {
                 {/* Avatar */}
                 <div
                   style={{
-                    width: "68px",
-                    height: "68px",
+                    width: "56px",
+                    height: "56px",
                     borderRadius: "50%",
-                    margin: "0 auto 1rem",
+                    margin: "0 auto 0.75rem",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     fontFamily: "var(--font-sans)",
-                    fontSize: "1rem",
+                    fontSize: "0.9rem",
                     fontWeight: 700,
                     background: av.bg,
                     color: av.color,
@@ -89,15 +84,15 @@ export function Team() {
                   <div
                     style={{
                       display: "inline-block",
-                      fontSize: "0.65rem",
+                      fontSize: "0.62rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.06em",
-                      padding: "0.15rem 0.55rem",
+                      padding: "0.15rem 0.5rem",
                       borderRadius: "100px",
                       background: "var(--teal-light)",
                       color: "var(--teal)",
                       border: "1px solid rgba(15,118,110,0.2)",
-                      marginBottom: "0.4rem",
+                      marginBottom: "0.35rem",
                       fontWeight: 600,
                     }}
                   >
@@ -107,7 +102,7 @@ export function Team() {
 
                 <h4
                   style={{
-                    fontSize: "0.95rem",
+                    fontSize: "0.88rem",
                     fontWeight: 700,
                     marginBottom: "0.2rem",
                     color: "var(--text)",
@@ -118,9 +113,9 @@ export function Team() {
                 <div
                   style={{
                     color: "var(--highlight)",
-                    fontSize: "0.75rem",
+                    fontSize: "0.72rem",
                     fontWeight: 600,
-                    marginBottom: "0.5rem",
+                    marginBottom: "0.4rem",
                     letterSpacing: "0.02em",
                   }}
                 >
@@ -129,7 +124,7 @@ export function Team() {
                 <div
                   style={{
                     color: "var(--muted)",
-                    fontSize: "0.75rem",
+                    fontSize: "0.72rem",
                     lineHeight: 1.4,
                   }}
                 >
@@ -141,17 +136,17 @@ export function Team() {
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
-                    gap: "0.35rem",
+                    gap: "0.3rem",
                     justifyContent: "center",
-                    marginTop: "0.8rem",
+                    marginTop: "0.75rem",
                   }}
                 >
                   {member.skills.map((skill) => (
                     <span
                       key={skill}
                       style={{
-                        fontSize: "0.67rem",
-                        padding: "0.18rem 0.5rem",
+                        fontSize: "0.62rem",
+                        padding: "0.15rem 0.45rem",
                         borderRadius: "100px",
                         background: "var(--highlight-light)",
                         color: "var(--highlight)",

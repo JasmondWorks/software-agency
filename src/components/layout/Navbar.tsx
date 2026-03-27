@@ -12,6 +12,7 @@ const navLinks = [
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -19,77 +20,105 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        padding: "1rem 2.5rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        background: "rgba(250,250,248,0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
-        transition: "border-color 0.3s",
-      }}
-    >
-      <Link
-        href="/"
-        style={{
-          fontFamily: "var(--font-serif)",
-          fontSize: "1.5rem",
-          color: "var(--text)",
-          textDecoration: "none",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        Randora<span style={{ color: "var(--highlight)" }}>.</span>
-      </Link>
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
-      <ul style={{ display: "flex", gap: "2rem", listStyle: "none" }}>
-        {navLinks.map((link) => (
-          <li key={link.href}>
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <>
+      <nav
+        className="navbar"
+        style={{ borderBottomColor: scrolled ? "var(--border)" : "transparent" }}
+      >
+        <Link href="/" className="navbar-logo">
+          Randora<span style={{ color: "var(--highlight)" }}>.</span>
+        </Link>
+
+        {/* Desktop nav */}
+        <ul className="nav-links">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} className="nav-link">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Desktop CTA */}
+        <a href="#contact" className="nav-cta-btn">
+          <button className="btn btn-accent btn-accent--sm">
+            Start a project
+          </button>
+        </a>
+
+        {/* Hamburger — mobile only */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+        >
+          <span style={{ width: "22px" }} />
+          <span style={{ width: "22px" }} />
+          <span style={{ width: "14px" }} />
+        </button>
+      </nav>
+
+      {/* Overlay */}
+      <div
+        className={`sidebar-overlay${open ? " sidebar-overlay--open" : ""}`}
+        onClick={() => setOpen(false)}
+      />
+
+      {/* Sidebar */}
+      <aside className={`sidebar${open ? " sidebar--open" : ""}`}>
+        <div className="sidebar-header">
+          <span className="navbar-logo">
+            Randora<span style={{ color: "var(--highlight)" }}>.</span>
+          </span>
+          <button
+            className="sidebar-close"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <nav className="sidebar-nav">
+          {navLinks.map((link) => (
             <a
+              key={link.href}
               href={link.href}
-              style={{
-                color: "var(--muted)",
-                textDecoration: "none",
-                fontSize: "0.875rem",
-                fontWeight: 500,
-                letterSpacing: "0.01em",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+              className="sidebar-link"
+              onClick={() => setOpen(false)}
             >
               {link.label}
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </nav>
 
-      <a href="#contact">
-        <button
-          style={{
-            background: "var(--accent)",
-            color: "#fff",
-            border: "none",
-            padding: "0.55rem 1.4rem",
-            borderRadius: "6px",
-            fontFamily: "var(--font-sans)",
-            fontSize: "0.875rem",
-            fontWeight: 600,
-            cursor: "pointer",
-            letterSpacing: "0.01em",
-          }}
+        <a
+          href="#contact"
+          onClick={() => setOpen(false)}
+          style={{ textDecoration: "none", marginTop: "2rem" }}
         >
-          Start a project
-        </button>
-      </a>
-    </nav>
+          <button className="btn btn-accent btn-accent--full">
+            Start a project →
+          </button>
+        </a>
+      </aside>
+    </>
   );
 }

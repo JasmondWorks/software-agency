@@ -3,8 +3,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Credibility() {
   return (
-    <section style={{ background: "var(--bg2)", padding: "6rem 2.5rem" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+    <section className="section" style={{ background: "var(--bg2)" }}>
+      <div className="container">
         <SectionHeader
           tag="Why trust us"
           heading={
@@ -19,13 +19,7 @@ export function Credibility() {
           sub="We put our standards in writing — before the project starts and after it ends."
         />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="grid-3">
           {credibilityItems.map((item) => (
             <div
               key={item.title}

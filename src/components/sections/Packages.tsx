@@ -3,8 +3,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Packages() {
   return (
-    <section id="packages" style={{ padding: "6rem 2.5rem" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+    <section id="packages" className="section">
+      <div className="container">
         <SectionHeader
           tag="Pricing"
           heading={
@@ -19,13 +19,7 @@ export function Packages() {
           sub="No surprise invoices. Every engagement starts with a clear scope, milestone structure, and agreed deliverables."
         />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="grid-3">
           {packages.map((pkg) => (
             <div
               key={pkg.id}
@@ -138,7 +132,9 @@ export function Packages() {
                         background: feature.included
                           ? "var(--teal-light)"
                           : "var(--bg2)",
-                        color: feature.included ? "var(--teal)" : "var(--muted)",
+                        color: feature.included
+                          ? "var(--teal)"
+                          : "var(--muted)",
                         border: feature.included
                           ? "1px solid rgba(15,118,110,0.2)"
                           : "1px solid var(--border)",
@@ -163,9 +159,7 @@ export function Packages() {
                   letterSpacing: "0.01em",
                   background: pkg.featured ? "var(--highlight)" : "transparent",
                   color: pkg.featured ? "#fff" : "var(--text)",
-                  border: pkg.featured
-                    ? "none"
-                    : "1.5px solid var(--border2)",
+                  border: pkg.featured ? "none" : "1.5px solid var(--border2)",
                   transition: "opacity 0.2s",
                 }}
               >

@@ -5,8 +5,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Social() {
   return (
-    <section style={{ padding: "6rem 2.5rem" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+    <section className="section">
+      <div className="container">
         <SectionHeader
           tag="Follow us"
           heading={
@@ -38,7 +38,6 @@ export function Social() {
                 color: "var(--text2)",
                 fontSize: "0.83rem",
                 fontWeight: 500,
-                cursor: "pointer",
                 background: "var(--card)",
                 textDecoration: "none",
                 transition: "border-color 0.2s, background 0.2s",

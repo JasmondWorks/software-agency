@@ -8,24 +8,8 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer
-      style={{
-        padding: "2.5rem 2.5rem",
-        borderTop: "1px solid var(--border)",
-        background: "var(--bg)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "1rem",
-        }}
-      >
+    <footer className="footer">
+      <div className="footer-inner">
         <div
           style={{
             fontFamily: "var(--font-serif)",
@@ -37,7 +21,8 @@ export function Footer() {
         </div>
 
         <p style={{ color: "var(--muted)", fontSize: "0.78rem" }}>
-          © {new Date().getFullYear()} Randora Ltd. CAC Registered. Lagos, Nigeria.
+          © {new Date().getFullYear()} Randora Ltd. CAC Registered. Lagos,
+          Nigeria.
         </p>
 
         <nav style={{ display: "flex", gap: "1.5rem" }}>

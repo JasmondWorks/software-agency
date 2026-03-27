@@ -2,14 +2,11 @@ export function CTA() {
   return (
     <section
       id="contact"
-      style={{ padding: "7rem 2.5rem", background: "var(--accent)" }}
+      className="section-lg"
+      style={{ background: "var(--accent)" }}
     >
       <div
-        style={{
-          maxWidth: "680px",
-          margin: "0 auto",
-          textAlign: "center",
-        }}
+        style={{ maxWidth: "680px", margin: "0 auto", textAlign: "center" }}
       >
         <div
           style={{
@@ -37,12 +34,7 @@ export function CTA() {
           }}
         >
           Ready to build something{" "}
-          <em
-            style={{
-              fontStyle: "italic",
-              color: "rgba(255,255,255,0.45)",
-            }}
-          >
+          <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.45)" }}>
             serious?
           </em>
         </h2>
@@ -69,36 +61,8 @@ export function CTA() {
             flexWrap: "wrap",
           }}
         >
-          <button
-            style={{
-              background: "#fff",
-              color: "var(--accent)",
-              border: "none",
-              padding: "0.85rem 2rem",
-              borderRadius: "8px",
-              fontFamily: "var(--font-sans)",
-              fontSize: "0.95rem",
-              fontWeight: 700,
-              cursor: "pointer",
-            }}
-          >
-            Start a project →
-          </button>
-          <button
-            style={{
-              background: "transparent",
-              color: "#fff",
-              border: "1.5px solid rgba(255,255,255,0.3)",
-              padding: "0.85rem 2rem",
-              borderRadius: "8px",
-              fontFamily: "var(--font-sans)",
-              fontSize: "0.95rem",
-              fontWeight: 500,
-              cursor: "pointer",
-            }}
-          >
-            Schedule a call
-          </button>
+          <button className="btn btn-white">Start a project →</button>
+          <button className="btn btn-outline-white">Schedule a call</button>
         </div>
 
         <div
@@ -114,7 +78,8 @@ export function CTA() {
             marginTop: "2.5rem",
           }}
         >
-          ✓ CAC Registered &nbsp;·&nbsp; Milestone billing &nbsp;·&nbsp; Full IP transfer
+          ✓ CAC Registered &nbsp;·&nbsp; Milestone billing &nbsp;·&nbsp; Full
+          IP transfer
         </div>
       </div>
     </section>

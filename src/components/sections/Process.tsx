@@ -3,8 +3,8 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Process() {
   return (
-    <section style={{ padding: "6rem 2.5rem" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+    <section className="section">
+      <div className="container">
         <SectionHeader
           tag="Our process"
           heading={
@@ -19,13 +19,7 @@ export function Process() {
           sub="A consistent, documented process means you know exactly what's happening at every stage — no black boxes, no surprises."
         />
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div className="grid-3">
           {processSteps.map((step) => (
             <div
               key={step.num}
@@ -39,7 +33,6 @@ export function Process() {
                 overflow: "hidden",
               }}
             >
-              {/* top accent line */}
               <div
                 style={{
                   position: "absolute",
