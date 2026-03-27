@@ -85,7 +85,7 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${epilogue.variable}`}
     >
-      <body className={epilogue.className}>{children}</body>
+      <body className={epilogue.className} suppressHydrationWarning>{children}</body>
     </html>
   );
 }
