@@ -3,76 +3,34 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Process() {
   return (
-    <section className="section">
-      <div className="container">
+    <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-10 bg-white">
+      <div className="max-w-[1100px] mx-auto w-full">
         <SectionHeader
           tag="Our process"
           heading={
             <>
               From idea
               <br />
-              <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-                to production.
-              </em>
+              <em className="italic text-zinc-500">to production.</em>
             </>
           }
           sub="A consistent, documented process means you know exactly what's happening at every stage — no black boxes, no surprises."
         />
 
-        <div className="grid-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {processSteps.map((step) => (
             <div
               key={step.num}
-              style={{
-                padding: "2rem",
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                borderRadius: "12px",
-                boxShadow: "var(--shadow)",
-                position: "relative",
-                overflow: "hidden",
-              }}
+              className="p-8 bg-zinc-50 border border-zinc-200 rounded-xl relative overflow-hidden group hover:border-zinc-300 transition-colors"
             >
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: "3px",
-                  background: "var(--highlight)",
-                  opacity: 0.15,
-                }}
-              />
-              <div
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "3rem",
-                  color: "var(--border2)",
-                  lineHeight: 1,
-                  marginBottom: "1rem",
-                }}
-              >
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-zinc-950 opacity-10 group-hover:opacity-20 transition-opacity" />
+              <div className="font-sans font-bold text-5xl text-zinc-300 leading-none mb-4 tracking-[-0.02em]">
                 {step.num}
               </div>
-              <h4
-                style={{
-                  fontWeight: 700,
-                  fontSize: "0.95rem",
-                  marginBottom: "0.5rem",
-                  color: "var(--text)",
-                }}
-              >
+              <h4 className="font-bold text-[0.95rem] mb-2 text-zinc-950">
                 {step.title}
               </h4>
-              <p
-                style={{
-                  color: "var(--text2)",
-                  fontSize: "0.85rem",
-                  lineHeight: 1.65,
-                  fontWeight: 300,
-                }}
-              >
+              <p className="text-zinc-600 text-[0.85rem] leading-relaxed font-light">
                 {step.description}
               </p>
             </div>

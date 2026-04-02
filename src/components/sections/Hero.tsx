@@ -1,119 +1,59 @@
+import Image from "next/image";
+
 export function Hero() {
   return (
-    <div className="hero-wrapper">
-      <section className="hero-section">
+    <div className="max-w-[1200px] mx-auto w-full px-5 sm:px-8 lg:px-10">
+      <section className="relative flex flex-col items-start justify-center pt-24 pb-12 md:pt-28 md:pb-16 min-h-svh">
         {/* Eyebrow */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            background: "var(--highlight-light)",
-            border: "1px solid rgba(37,99,235,0.2)",
-            borderRadius: "100px",
-            padding: "0.3rem 1rem",
-            fontSize: "0.75rem",
-            color: "var(--highlight)",
-            marginBottom: "2rem",
-            fontWeight: 600,
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              background: "var(--highlight)",
-              display: "inline-block",
-              flexShrink: 0,
-            }}
-          />
+        <div className="inline-flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-4 py-1.5 text-xs text-zinc-950 font-semibold tracking-wide uppercase mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 block shrink-0" />
           CAC Registered · Lagos, Nigeria
         </div>
 
         {/* Heading */}
-        <h1
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2.6rem, 7vw, 6rem)",
-            fontWeight: 400,
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-            maxWidth: "800px",
-            marginBottom: "1.5rem",
-            color: "var(--text)",
-          }}
-        >
-          We build digital products
-          <br />
-          that{" "}
-          <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-            actually
-          </em>{" "}
+        <h1 className="font-sans text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight max-w-[700px] mb-5 text-zinc-950">
+          We build digital products that{" "}
+          <em className="italic text-zinc-600">actually</em>{" "}
           scale.
         </h1>
 
         {/* Subtext */}
-        <p
-          style={{
-            maxWidth: "520px",
-            color: "var(--text2)",
-            fontSize: "1.05rem",
-            lineHeight: 1.75,
-            marginBottom: "2.5rem",
-            fontWeight: 300,
-          }}
-        >
+        <p className="max-w-[520px] text-zinc-500 text-lg leading-relaxed mb-8 font-light">
           A multi-disciplinary team of engineers and designers building secure,
           AI-powered digital products for startups and enterprises across Africa
           and beyond.
         </p>
 
         {/* CTA Buttons */}
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+        <div className="flex gap-3 flex-wrap">
           <a href="#contact">
-            <button className="btn btn-accent">Start a project →</button>
+            <button className="bg-zinc-950 hover:bg-zinc-800 text-white px-8 py-3.5 rounded-lg text-[0.95rem] font-semibold tracking-wide transition-colors">
+              Start a project →
+            </button>
           </a>
           <a href="#services">
-            <button className="btn btn-outline">View our work</button>
+            <button className="bg-transparent border border-zinc-300 hover:border-zinc-400 text-zinc-950 px-8 py-3.5 rounded-lg text-[0.95rem] font-semibold tracking-wide transition-colors">
+              View our work
+            </button>
           </a>
         </div>
 
-        {/* Decorative circles — desktop only */}
+        {/* Decorative circles and Illustration — desktop only */}
         <div
-          className="hero-circles"
+          className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 items-center justify-center w-[480px] h-[480px] pointer-events-none"
           aria-hidden="true"
-          style={{
-            width: "380px",
-            height: "380px",
-            borderRadius: "50%",
-            border: "1px solid var(--border)",
-            opacity: 0.5,
-          }}
         >
-          <div
-            style={{
-              width: "280px",
-              height: "280px",
-              borderRadius: "50%",
-              border: "1px solid var(--border2)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "180px",
-                height: "180px",
-                borderRadius: "50%",
-                background: "var(--highlight-light)",
-                border: "1px solid rgba(37,99,235,0.15)",
-              }}
-            />
-          </div>
+          <div className="absolute inset-0 rounded-full border border-zinc-200 opacity-50" />
+          <div className="absolute w-[340px] h-[340px] rounded-full border border-zinc-300" />
+          <div className="absolute w-[200px] h-[200px] rounded-full bg-zinc-100 border border-zinc-300/50" />
+          <Image
+            src="/images/Team-pana.svg"
+            alt="Hero illustration"
+            width={600}
+            height={400}
+            className="relative z-10 w-full max-w-[480px] h-auto drop-shadow-sm pointer-events-auto"
+            priority
+          />
         </div>
       </section>
     </div>
