@@ -7,91 +7,41 @@ export function Services() {
   return (
     <section
       id="services"
-      className="section"
-      style={{ background: "var(--bg2)" }}
+      className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-10 bg-zinc-50"
     >
-      <div className="container">
+      <div className="max-w-[1100px] mx-auto w-full">
         <SectionHeader
           tag="What we do"
           heading={
             <>
               Built for real scale.
               <br />
-              <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-                Secured by default.
-              </em>
+              <em className="italic text-zinc-500">Secured by default.</em>
             </>
           }
           sub="We don't just ship features — we architect systems that grow with you. Every product leaves our hands production-ready."
         />
 
-        <div className="services-grid">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[1px] bg-zinc-200 border border-zinc-200 rounded-xl overflow-hidden">
           {services.map((service) => (
             <div
               key={service.num}
-              style={{
-                background: "var(--card)",
-                padding: "2rem",
-                transition: "background 0.2s",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "var(--bg2)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "var(--card)")
-              }
+              className="bg-white p-8 hover:bg-zinc-50 transition-colors"
             >
-              <div
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "1.1rem",
-                  color: "var(--muted)",
-                  marginBottom: "1.2rem",
-                }}
-              >
+              <div className="font-sans text-[1.1rem] font-bold text-zinc-400 mb-5 tracking-tight">
                 {service.num}
               </div>
-              <h3
-                style={{
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  marginBottom: "0.6rem",
-                  color: "var(--text)",
-                  letterSpacing: "-0.01em",
-                }}
-              >
+              <h3 className="text-base font-bold mb-2.5 text-zinc-950 tracking-[-0.01em]">
                 {service.title}
               </h3>
-              <p
-                style={{
-                  color: "var(--text2)",
-                  fontSize: "0.875rem",
-                  lineHeight: 1.65,
-                  fontWeight: 300,
-                }}
-              >
+              <p className="text-zinc-600 text-[0.875rem] leading-relaxed font-light">
                 {service.description}
               </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "0.4rem",
-                  marginTop: "1.2rem",
-                }}
-              >
+              <div className="flex flex-wrap gap-1.5 mt-5">
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    style={{
-                      fontSize: "0.7rem",
-                      padding: "0.2rem 0.6rem",
-                      borderRadius: "100px",
-                      border: "1px solid var(--border2)",
-                      color: "var(--muted)",
-                      fontWeight: 500,
-                      letterSpacing: "0.02em",
-                    }}
+                    className="text-[0.7rem] px-2.5 py-1 rounded-full border border-zinc-300 text-zinc-500 font-medium tracking-[0.02em]"
                   >
                     {tag}
                   </span>
