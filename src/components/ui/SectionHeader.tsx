@@ -12,35 +12,26 @@ export function SectionHeader({
   centered,
 }: SectionHeaderProps) {
   return (
-    <div className={centered ? "section-header--centered" : "section-header"}>
+    <div
+      className={`flex flex-col gap-4 mb-10 md:mb-12 ${
+        centered
+          ? "items-center text-center"
+          : "items-start md:flex-row md:items-end md:justify-between md:gap-8"
+      }`}
+    >
       <div>
-        <div
-          style={{
-            display: "inline-block",
-            fontSize: "0.72rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.12em",
-            color: "var(--muted)",
-            fontWeight: 600,
-            marginBottom: "0.6rem",
-          }}
-        >
+        <div className="inline-block text-[0.72rem] uppercase tracking-[0.12em] text-zinc-500 font-semibold mb-2.5">
           {tag}
         </div>
-        <h2
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2rem, 4vw, 3rem)",
-            fontWeight: 400,
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            color: "var(--text)",
-          }}
-        >
+        <h2 className="font-sans text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.03em] text-zinc-950">
           {heading}
         </h2>
       </div>
-      {sub && <p className="section-header-sub">{sub}</p>}
+      {sub && (
+        <p className={`text-zinc-600 text-[0.95rem] font-light leading-[1.75] ${centered ? "w-full" : "max-w-[460px] w-full"}`}>
+          {sub}
+        </p>
+      )}
     </div>
   );
 }

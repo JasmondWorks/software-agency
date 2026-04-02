@@ -5,60 +5,32 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Social() {
   return (
-    <section className="section">
-      <div className="container">
+    <section className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-10 bg-white">
+      <div className="max-w-[1100px] mx-auto w-full">
         <SectionHeader
           tag="Follow us"
           heading={
             <>
               We build
               <br />
-              <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-                in public.
-              </em>
+              <em className="italic text-zinc-500">in public.</em>
             </>
           }
           sub="Technical breakdowns, behind-the-scenes builds, and real insights into how we work — across every platform."
         />
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+        <div className="flex flex-wrap gap-3">
           {socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.6rem",
-                padding: "0.6rem 1.1rem",
-                border: "1px solid var(--border)",
-                borderRadius: "8px",
-                color: "var(--text2)",
-                fontSize: "0.83rem",
-                fontWeight: 500,
-                background: "var(--card)",
-                textDecoration: "none",
-                transition: "border-color 0.2s, background 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--border2)";
-                e.currentTarget.style.background = "var(--bg2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--border)";
-                e.currentTarget.style.background = "var(--card)";
-              }}
+              className="flex items-center gap-2.5 px-4 py-2.5 border border-zinc-200 rounded-lg text-zinc-600 text-[0.83rem] font-medium bg-white no-underline hover:border-zinc-300 hover:bg-zinc-50 transition-colors"
             >
               <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: link.color,
-                  flexShrink: 0,
-                }}
+                className="w-2 h-2 rounded-full shrink-0"
+                style={{ background: link.color }}
               />
               {link.label}
               {link.handle ? ` — ${link.handle}` : ""}
