@@ -8,34 +8,23 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "1.2rem",
-            color: "var(--text)",
-          }}
-        >
-          Randora<span style={{ color: "var(--highlight)" }}>.</span>
+    <footer className="py-8 sm:py-9 lg:py-10 px-5 sm:px-8 lg:px-10 border-t border-zinc-200 bg-white">
+      <div className="max-w-[1100px] mx-auto w-full flex flex-wrap items-center justify-between gap-3">
+        <div className="font-sans font-bold text-[1.2rem] text-zinc-950 tracking-[-0.02em]">
+          Randora<span className="text-zinc-950">.</span>
         </div>
 
-        <p style={{ color: "var(--muted)", fontSize: "0.78rem" }}>
+        <p className="text-zinc-500 text-[0.78rem]">
           © {new Date().getFullYear()} Randora Ltd. CAC Registered. Lagos,
           Nigeria.
         </p>
 
-        <nav style={{ display: "flex", gap: "1.5rem" }}>
+        <nav className="flex gap-6">
           {footerLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              style={{
-                color: "var(--muted)",
-                fontSize: "0.78rem",
-                textDecoration: "none",
-                fontWeight: 500,
-              }}
+              className="text-zinc-500 text-[0.78rem] no-underline font-medium hover:text-zinc-950 transition-colors"
             >
               {link.label}
             </Link>

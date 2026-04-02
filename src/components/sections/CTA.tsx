@@ -2,84 +2,35 @@ export function CTA() {
   return (
     <section
       id="contact"
-      className="section-lg"
-      style={{ background: "var(--accent)" }}
+      className="py-20 sm:py-24 lg:py-28 px-5 sm:px-8 lg:px-10 bg-zinc-950"
     >
-      <div
-        style={{ maxWidth: "680px", margin: "0 auto", textAlign: "center" }}
-      >
-        <div
-          style={{
-            display: "inline-block",
-            fontSize: "0.72rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.12em",
-            color: "rgba(255,255,255,0.4)",
-            fontWeight: 600,
-            marginBottom: "1rem",
-          }}
-        >
+      <div className="max-w-[680px] mx-auto text-center">
+        <div className="inline-block text-[0.72rem] uppercase tracking-widest text-white/40 font-semibold mb-4">
           Let&apos;s work together
         </div>
 
-        <h2
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
-            fontWeight: 400,
-            lineHeight: 1.1,
-            letterSpacing: "-0.02em",
-            color: "#fff",
-            marginBottom: "1rem",
-          }}
-        >
+        <h2 className="font-sans text-[clamp(2.2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.03em] text-white mb-4">
           Ready to build something{" "}
-          <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.45)" }}>
-            serious?
-          </em>
+          <em className="italic text-white/50">serious?</em>
         </h2>
 
-        <p
-          style={{
-            color: "rgba(255,255,255,0.55)",
-            fontSize: "1rem",
-            fontWeight: 300,
-            marginBottom: "2.5rem",
-            lineHeight: 1.7,
-          }}
-        >
+        <p className="text-white/60 text-base font-light mb-10 leading-relaxed">
           Whether you have a fully-formed brief or just a problem worth solving
           — start with a conversation. Discovery sprints are available
           immediately.
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <button className="btn btn-white">Start a project →</button>
-          <button className="btn btn-outline-white">Schedule a call</button>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <button className="bg-white hover:bg-zinc-100 text-zinc-950 font-bold px-8 py-3.5 rounded-lg text-[0.95rem] tracking-wide transition-colors">
+            Start a project →
+          </button>
+          <button className="bg-transparent border-2 border-white/30 hover:border-white/50 text-white font-medium px-8 py-3.5 rounded-lg text-[0.95rem] tracking-wide transition-colors">
+            Schedule a call
+          </button>
         </div>
 
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            border: "1px solid rgba(255,255,255,0.2)",
-            borderRadius: "6px",
-            padding: "0.5rem 1rem",
-            fontSize: "0.78rem",
-            color: "rgba(255,255,255,0.5)",
-            marginTop: "2.5rem",
-          }}
-        >
-          ✓ CAC Registered &nbsp;·&nbsp; Milestone billing &nbsp;·&nbsp; Full
-          IP transfer
+        <div className="inline-flex items-center gap-2 border border-white/20 rounded-md px-4 py-2.5 text-xs text-white/50 mt-10">
+          ✓ CAC Registered &nbsp;·&nbsp; Milestone billing &nbsp;·&nbsp; Full IP transfer
         </div>
       </div>
     </section>
