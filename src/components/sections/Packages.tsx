@@ -3,142 +3,64 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function Packages() {
   return (
-    <section id="packages" className="section">
-      <div className="container">
+    <section id="packages" className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-10 bg-white">
+      <div className="max-w-[1100px] mx-auto w-full">
         <SectionHeader
           tag="Pricing"
           heading={
             <>
               Transparent
               <br />
-              <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-                packages.
-              </em>
+              <em className="italic text-zinc-500">packages.</em>
             </>
           }
           sub="No surprise invoices. Every engagement starts with a clear scope, milestone structure, and agreed deliverables."
         />
 
-        <div className="grid-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {packages.map((pkg) => (
             <div
               key={pkg.id}
-              style={{
-                background: "var(--card)",
-                border: pkg.featured
-                  ? "1.5px solid var(--highlight)"
-                  : "1px solid var(--border)",
-                borderRadius: "12px",
-                padding: "2.2rem",
-                position: "relative",
-                boxShadow: "var(--shadow)",
-              }}
+              className={`bg-white rounded-xl p-8 relative ${
+                pkg.featured
+                  ? "border-[1.5px] border-zinc-950"
+                  : "border border-zinc-200"
+              }`}
             >
               {pkg.badge && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-12px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    background: "var(--highlight)",
-                    color: "#fff",
-                    fontSize: "0.68rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    padding: "0.28rem 0.9rem",
-                    borderRadius: "100px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-950 text-white text-[0.68rem] font-bold tracking-[0.08em] uppercase px-3.5 py-1 rounded-full whitespace-nowrap">
                   {pkg.badge}
                 </div>
               )}
 
-              <div
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "1.4rem",
-                  marginBottom: "0.3rem",
-                  color: "var(--text)",
-                }}
-              >
+              <div className="font-sans font-bold text-[1.4rem] tracking-tight mb-1.5 text-zinc-950">
                 {pkg.name}
               </div>
-              <div
-                style={{
-                  color: "var(--muted)",
-                  fontSize: "0.82rem",
-                  marginBottom: "1.8rem",
-                  lineHeight: 1.5,
-                }}
-              >
+              <div className="text-zinc-500 text-[0.82rem] mb-7 leading-relaxed">
                 {pkg.description}
               </div>
 
-              <div
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: "2.2rem",
-                  color: "var(--text)",
-                  marginBottom: "0.25rem",
-                }}
-              >
+              <div className="font-sans font-bold tracking-tight text-[2.2rem] text-zinc-950 mb-1">
                 {pkg.price}
               </div>
-              <div
-                style={{
-                  color: "var(--muted)",
-                  fontSize: "0.78rem",
-                  marginBottom: "2rem",
-                }}
-              >
+              <div className="text-zinc-500 text-[0.78rem] mb-8">
                 {pkg.period}
               </div>
 
-              <ul
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.7rem",
-                  marginBottom: "2rem",
-                }}
-              >
+              <ul className="list-none flex flex-col gap-3 mb-8 p-0">
                 {pkg.features.map((feature) => (
                   <li
                     key={feature.label}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "0.6rem",
-                      fontSize: "0.875rem",
-                      color: feature.included ? "var(--text2)" : "var(--muted)",
-                    }}
+                    className={`flex items-start gap-2.5 text-[0.875rem] ${
+                      feature.included ? "text-zinc-700" : "text-zinc-400"
+                    }`}
                   >
                     <span
-                      style={{
-                        width: "16px",
-                        height: "16px",
-                        minWidth: "16px",
-                        borderRadius: "50%",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginTop: "2px",
-                        fontSize: "9px",
-                        fontWeight: 700,
-                        background: feature.included
-                          ? "var(--teal-light)"
-                          : "var(--bg2)",
-                        color: feature.included
-                          ? "var(--teal)"
-                          : "var(--muted)",
-                        border: feature.included
-                          ? "1px solid rgba(15,118,110,0.2)"
-                          : "1px solid var(--border)",
-                      }}
+                      className={`w-4 h-4 min-w-[16px] rounded-full inline-flex items-center justify-center mt-[2px] text-[9px] font-bold ${
+                        feature.included
+                          ? "bg-zinc-100 text-zinc-900 border border-zinc-200"
+                          : "bg-zinc-50 text-zinc-400 border border-zinc-200"
+                      }`}
                     >
                       {feature.included ? "✓" : ""}
                     </span>
@@ -148,20 +70,11 @@ export function Packages() {
               </ul>
 
               <button
-                style={{
-                  width: "100%",
-                  padding: "0.8rem",
-                  borderRadius: "8px",
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "0.875rem",
-                  fontWeight: 600,
-                  cursor: "pointer",
-                  letterSpacing: "0.01em",
-                  background: pkg.featured ? "var(--highlight)" : "transparent",
-                  color: pkg.featured ? "#fff" : "var(--text)",
-                  border: pkg.featured ? "none" : "1.5px solid var(--border2)",
-                  transition: "opacity 0.2s",
-                }}
+                className={`w-full p-3 rounded-lg font-sans text-[0.875rem] font-semibold cursor-pointer tracking-[0.01em] transition-colors ${
+                  pkg.featured
+                    ? "bg-zinc-950 hover:bg-zinc-800 text-white border-none"
+                    : "bg-transparent hover:bg-zinc-50 text-zinc-950 border-[1.5px] border-zinc-300"
+                }`}
               >
                 {pkg.cta}
               </button>
@@ -169,14 +82,7 @@ export function Packages() {
           ))}
         </div>
 
-        <p
-          style={{
-            textAlign: "center",
-            color: "var(--muted)",
-            fontSize: "0.82rem",
-            marginTop: "2rem",
-          }}
-        >
+        <p className="text-center text-zinc-500 text-[0.82rem] mt-8">
           International pricing available in USD · Custom enterprise quotes on
           request
         </p>

@@ -17,142 +17,60 @@ export function Team() {
   return (
     <section
       id="team"
-      className="section"
-      style={{ background: "var(--bg2)" }}
+      className="py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-10 bg-zinc-50"
     >
-      <div className="container">
+      <div className="max-w-[1100px] mx-auto w-full">
         <SectionHeader
           tag="The team"
           heading={
             <>
               Specialists.
               <br />
-              <em style={{ fontStyle: "italic", color: "var(--highlight)" }}>
-                Not generalists.
-              </em>
+              <em className="italic text-zinc-500">Not generalists.</em>
             </>
           }
           sub="A bench of senior practitioners across every discipline — each a specialist, working together as one team."
         />
 
-        <div className="grid-team">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {team.map((member) => {
             const av = avatarColors[member.color];
             return (
               <div
                 key={member.id}
-                style={{
-                  background: "var(--card)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "12px",
-                  padding: "1.5rem 1.25rem",
-                  textAlign: "center",
-                  boxShadow: "var(--shadow)",
-                  transition: "box-shadow 0.2s, transform 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = "var(--shadow-md)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "var(--shadow)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
+                className="bg-white border border-zinc-200 rounded-xl p-6 text-center hover:border-zinc-300 transition-colors"
               >
                 {/* Avatar */}
                 <div
-                  style={{
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "50%",
-                    margin: "0 auto 0.75rem",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "0.9rem",
-                    fontWeight: 700,
-                    background: av.bg,
-                    color: av.color,
-                  }}
+                  className="w-14 h-14 rounded-full mx-auto mb-3 flex items-center justify-center font-sans text-[0.9rem] font-bold"
+                  style={{ background: av.bg, color: av.color }}
                 >
                   {member.initials}
                 </div>
 
                 {/* Founder badge */}
                 {member.badge && (
-                  <div
-                    style={{
-                      display: "inline-block",
-                      fontSize: "0.62rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.06em",
-                      padding: "0.15rem 0.5rem",
-                      borderRadius: "100px",
-                      background: "var(--teal-light)",
-                      color: "var(--teal)",
-                      border: "1px solid rgba(15,118,110,0.2)",
-                      marginBottom: "0.35rem",
-                      fontWeight: 600,
-                    }}
-                  >
+                  <div className="inline-block text-[0.62rem] uppercase tracking-[0.06em] px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-800 border border-zinc-200 mb-1.5 font-semibold">
                     {member.badge}
                   </div>
                 )}
 
-                <h4
-                  style={{
-                    fontSize: "0.88rem",
-                    fontWeight: 700,
-                    marginBottom: "0.2rem",
-                    color: "var(--text)",
-                  }}
-                >
+                <h4 className="text-[0.88rem] font-bold mb-1 text-zinc-950">
                   {member.name}
                 </h4>
-                <div
-                  style={{
-                    color: "var(--highlight)",
-                    fontSize: "0.72rem",
-                    fontWeight: 600,
-                    marginBottom: "0.4rem",
-                    letterSpacing: "0.02em",
-                  }}
-                >
+                <div className="text-zinc-600 text-[0.72rem] font-semibold mb-1.5 tracking-[0.02em]">
                   {member.role}
                 </div>
-                <div
-                  style={{
-                    color: "var(--muted)",
-                    fontSize: "0.72rem",
-                    lineHeight: 1.4,
-                  }}
-                >
+                <div className="text-zinc-500 text-[0.72rem] leading-relaxed">
                   {member.bio}
                 </div>
 
                 {/* Skills */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.3rem",
-                    justifyContent: "center",
-                    marginTop: "0.75rem",
-                  }}
-                >
+                <div className="flex flex-wrap gap-1.5 justify-center mt-3">
                   {member.skills.map((skill) => (
                     <span
                       key={skill}
-                      style={{
-                        fontSize: "0.62rem",
-                        padding: "0.15rem 0.45rem",
-                        borderRadius: "100px",
-                        background: "var(--highlight-light)",
-                        color: "var(--highlight)",
-                        border: "1px solid rgba(37,99,235,0.15)",
-                        fontWeight: 500,
-                      }}
+                      className="text-[0.62rem] px-2 py-0.5 rounded-full bg-zinc-50 text-zinc-600 border border-zinc-200 font-medium"
                     >
                       {skill}
                     </span>
